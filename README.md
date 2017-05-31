@@ -8,20 +8,20 @@
 	in /META-INF/context.xml
 	in web.xml
 	
-  {description}Spring Database{/description}
-  
-  {resource-ref}
-  
-      {description}DB Connection{/description}
-      
-      {res-ref-name}jdbc/spring{/res-ref-name}
-      
-      {res-type}javax.sql.DataSource{/res-type}
-      
-      {res-auth}Container{/res-auth}
-      
-  {/resource-ref}
-  
+	  {description}Spring Database{/description}
+
+	  {resource-ref}
+
+	      {description}DB Connection{/description}
+
+	      {res-ref-name}jdbc/spring{/res-ref-name}
+
+	      {res-type}javax.sql.DataSource{/res-type}
+
+	      {res-auth}Container{/res-auth}
+
+	  {/resource-ref}
+
 	in the DotaHeroDaoImpl.java
 	@Autowired
 	method annotated with @Autowired is considered to be a config method
@@ -43,31 +43,34 @@
 	{/jee:jndi-lookup}
 	
 	
-  ContextLoaderListener
-  
-  will create a web application context based on the "contextClass" and "contextConfigLocation" servlet context-params.
-  The ApplicationContext is where your Spring beans live. The purpose of the ContextLoaderListener is two-fold:
-	to tie the lifecycle of the ApplicationContext to the lifecycle of the ServletContext and
-	to automate the creation of the ApplicationContext, so you don't have to write explicit code to do create it - it's a convenience function.
-	Another convenient thing about the ContextLoaderListener is that it creates a WebApplicationContext and WebApplicationContext provides access to the ServletContext via ServletContextAware beans and the getServletContext method.
-	
-   ContextLoaderListener has its own context which is shared by all servlets and filters. By default it will search /WEB-INF/applicationContext.xml
-   you can customize by
+	  ContextLoaderListener
+
+	  will create a web application context based on the "contextClass" and "contextConfigLocation" servlet context-params.
+	  The ApplicationContext is where your Spring beans live. The purpose of the ContextLoaderListener is two-fold:
+		to tie the lifecycle of the ApplicationContext to the lifecycle of the ServletContext and
+		to automate the creation of the ApplicationContext, so you don't have to write explicit code to do create it - it's a 	convenience function.
+		Another convenient thing about the ContextLoaderListener is that it creates a WebApplicationContext and WebApplicationContext provides access to the ServletContext via ServletContextAware beans and the getServletContext method.
+
+	   ContextLoaderListener has its own context which is shared by all servlets and filters. By default it will search /WEB-INF/applicationContext.xml
+	   you can customize by
    
-  {context-param}
-  
-  {param-name}contextConfigLocation{/param-name}
-  
-  {param-value}
-  
-  classpath:com/config/dao-context.xml
-  
-  {/param-value}
-  
-  {/context-param}
+	  {context-param}
+
+	  {param-name}contextConfigLocation{/param-name}
+
+	  {param-value}
+
+	  classpath:com/config/dao-context.xml
+
+	  {/param-value}
+
+	  {/context-param}
   
   param-name should be correct "contextConfigLocation", otherwise can't be found!!!!
 
  2.in dao-context.xml
   
-  {context:annotation-config} declares support for general annotations such as @Required, @Autowired, @PostConstruct, and so on.
+  	{context:annotation-config} declares support for general annotations such as @Required, @Autowired, @PostConstruct, and so on.
+
+Difference between @Compoenet @Service @Controller @Repository
+https://stackoverflow.com/questions/6827752/whats-the-difference-between-component-repository-service-annotations-in
