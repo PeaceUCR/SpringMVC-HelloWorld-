@@ -7,12 +7,19 @@
 	
 	in /META-INF/context.xml
 	in web.xml
+	
   {description}Spring Database{/description}
+  
   {resource-ref}
+  
       {description}DB Connection{/description}
+      
       {res-ref-name}jdbc/spring{/res-ref-name}
+      
       {res-type}javax.sql.DataSource{/res-type}
+      
       {res-auth}Container{/res-auth}
+      
   {/resource-ref}
   
 	in the DotaHeroDaoImpl.java
@@ -25,10 +32,14 @@
 	http://docs.spring.io/spring/docs/4.0.5.RELEASE/javadoc-api/org/springframework/beans/factory/annotation/Autowired.html
 	
 	dao-context.xml
+	
 	jndi-name must be correct,jee:jndi-lookup means  to search the JNDI resource name in the web container, (normally, the JNDI resource config in the server server.xml or context.xml,
 	when the server start, this resource config will put in web container), then transform to dataSource bean
+	
 	{jee:jndi-lookup jndi-name="jdbc/spring" id="dataSource"
+	
 		expected-type="javax.sql.DataSource"}
+		
 	{/jee:jndi-lookup}
 	
 	
@@ -44,10 +55,15 @@
    you can customize by
    
   {context-param}
+  
   {param-name}contextConfigLocation{/param-name}
+  
   {param-value}
+  
   classpath:com/config/dao-context.xml
+  
   {/param-value}
+  
   {/context-param}
   
   param-name should be correct "contextConfigLocation", otherwise can't be found!!!!
