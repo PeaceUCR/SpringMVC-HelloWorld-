@@ -45,15 +45,15 @@
 	{/jee:jndi-lookup}
 	
 	
-	  ### ContextLoaderListener
+	### ContextLoaderListener
 
-	  will create a web application context based on the "contextClass" and "contextConfigLocation" servlet context-params.
-	  The ApplicationContext is where your Spring beans live. The purpose of the ContextLoaderListener is two-fold:
+	will create a web application context based on the "contextClass" and "contextConfigLocation" servlet context-params.
+	The ApplicationContext is where your Spring beans live. The purpose of the ContextLoaderListener is two-fold:
 		to tie the lifecycle of the ApplicationContext to the lifecycle of the ServletContext and
 		to automate the creation of the ApplicationContext, so you don't have to write explicit code to do create it - it's a 	convenience function.
 		Another convenient thing about the ContextLoaderListener is that it creates a WebApplicationContext and WebApplicationContext provides access to the ServletContext via ServletContextAware beans and the getServletContext method.
 
-	   ContextLoaderListener has its own context which is shared by all servlets and filters. By default it will search /WEB-INF/applicationContext.xml
+	ContextLoaderListener has its own context which is shared by all servlets and filters. By default it will search /WEB-INF/applicationContext.xml
 	   you can customize by
    
 	  {context-param}
