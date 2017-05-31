@@ -1,4 +1,5 @@
-1. web.xml
+# 1. web.xml
+
 	Using JNDI to Access the jdbc-resource Within a Web Application,
 	https://docs.oracle.com/cd/E19146-01/819-2634/gcxij/index.html
 	JNDI configuration:
@@ -6,7 +7,8 @@
 	https://www.mkyong.com/tomcat/how-to-configure-mysql-datasource-in-tomcat-6/
 	
 	in /META-INF/context.xml
-	in web.xml
+	
+	### in web.xml
 	
 	  {description}Spring Database{/description}
 
@@ -31,7 +33,7 @@
 	https://stackoverflow.com/questions/24771702/spring-autowired-method-when-execute?rq=1
 	http://docs.spring.io/spring/docs/4.0.5.RELEASE/javadoc-api/org/springframework/beans/factory/annotation/Autowired.html
 	
-	dao-context.xml
+	### dao-context.xml
 	
 	jndi-name must be correct,jee:jndi-lookup means  to search the JNDI resource name in the web container, (normally, the JNDI resource config in the server server.xml or context.xml,
 	when the server start, this resource config will put in web container), then transform to dataSource bean
@@ -43,7 +45,7 @@
 	{/jee:jndi-lookup}
 	
 	
-	  ContextLoaderListener
+	  ### ContextLoaderListener
 
 	  will create a web application context based on the "contextClass" and "contextConfigLocation" servlet context-params.
 	  The ApplicationContext is where your Spring beans live. The purpose of the ContextLoaderListener is two-fold:
@@ -66,9 +68,9 @@
 
 	  {/context-param}
   
-  param-name should be correct "contextConfigLocation", otherwise can't be found!!!!
+      	  param-name should be correct "contextConfigLocation", otherwise can't be found!!!!
 
- 2.in dao-context.xml
+#  2.in dao-context.xml
   
   	{context:annotation-config} declares support for general annotations such as @Required, @Autowired, @PostConstruct, and so on.
 
